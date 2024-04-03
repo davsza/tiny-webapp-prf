@@ -1,0 +1,28 @@
+<div class="content" role="main">
+
+    <div class="card highlight-card card-small">
+  
+      <span>Terméklista</span>
+    </div>
+    <a [routerLink]="['/first']">Főoldal</a>
+    <a [routerLink]="['/login']">Logout</a>
+
+    <ul>
+      <li *ngFor="let item of termekek">Termék neve: {{ item.name }}, termék leírása: {{ item.description }}</li>
+    </ul>
+
+    <div *ngIf="isAdmin()">
+      <h2>Új termék hozzáadása</h2>
+      <div>
+          <label>Név</label>
+          <input type="text" id="name" [(ngModel)]="name">
+      </div>
+      <div>
+          <label>Leírás</label>
+          <input type="text" id="description" [(ngModel)]="description">
+      </div>
+      <button (click)="insertitem()">Hozzáadás</button>
+      <span>(Hozzáadás után az oldal frissítése szükséges)</span>
+    </div>
+    
+    </div>
